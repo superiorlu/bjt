@@ -13,8 +13,6 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
-
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/superiorlu/bjt.git'
 
@@ -30,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 0.89'
 
-  spec.add_runtime_dependency 'thor', '~> 0.19'
   spec.add_runtime_dependency 'launchy', '~> 2.4'
+  spec.add_runtime_dependency 'thor', '~> 0.19'
   spec.required_ruby_version = '>= 2.0.0'
 end
