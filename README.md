@@ -16,26 +16,23 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install bjt
-
 ## Usage
 
 ```shell
-   bundle exec bjt
+$ bundle exec bjt [destination] [package]
 
-bjt commands:
-  bjt g               # Jump To Github or Gitlab
-  bjt h               # Jump To Homepage
-  bjt help [COMMAND]  # Describe available commands or one specific command
-  bjt l               # Jump To Local Dir
-  bjt p               # Jump To Gems Repos
-  bjt r               # Jump To Releases
-  bjt s               # Jump To Source
 ```
 
-## Examples
+### Destinations:
+
+- `g` -> Jump To Github
+- `p` -> Jump To Gems Repos
+- `h` -> Jump To Homepage
+- `s` -> Jump To Source
+- `r` -> Jump To Releases
+- `l` -> Jump To Local Dir
+
+### Examples
 
 `bjt h bundler` (homepage)  
 → <https://bundler.io/>
@@ -53,7 +50,7 @@ bjt commands:
 → <https://github.com/rubygems/bundler/releases>
 
 `bjt l bundler` (Gem Installed Dir)  
-→ Open Folder: /Users/x/.rbenv/versions/2.x.x/lib/ruby/gems/2.x.x/gems/bundler-x.x.x
+→ Open Folder: /Users/xxx/.rbenv/versions/2.x.x/lib/ruby/gems/2.x.x/gems/bundler-x.x.x
 
 ## Contributing
 
