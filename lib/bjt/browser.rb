@@ -10,7 +10,7 @@ module Bjt
 
     def open
       Launchy.open(url) do |exception|
-        puts "Attempted to open #{url} and failed because #{exception}"
+        puts "Attempted to open '#{url}' and failed because #{exception}"
       end
     end
   end

@@ -19,9 +19,9 @@ module Bjt
           i[:homepage] = bundle_info.homepage
           i[:gem_path] = bundle_info.full_gem_path
           i[:source_code_uri] = bundle_info.metadata['source_code_uri'] || bundle_info.homepage
-          i[:release_uri] = release_url(bundle_info.metadata['source_code_uri'], bundle_info.homepage)
+          i[:release_uri] = release_uri_with(bundle_info.metadata['source_code_uri'], bundle_info.homepage)
           i[:source] = source_with(bundle_info.source).empty? ? 'https://rubygems.org' : source_with(bundle_info.source)
-          i[:package_url] = package_with(i[:source])
+          i[:package_uri] = package_uri_with(i[:source], i[:version])
         end
       end
     end
@@ -38,23 +38,25 @@ module Bjt
                   end
     end
 
-    def package_with(source)
+    def package_uri_with(source, version)
       return source if source.end_with?('.git')
 
-      source.end_with?('/') ? format('%sgems/%s', source, package) : format('%s/gems/%s', source, package)
+      package_uri = source.end_with?('/') ? format('%sgems/%s', source, package) : format('%s/gems/%s', source, package)
+      package_uri.concat("/versions/#{version}") if version
+      package_uri
     end
 
-    def release_url(source, homepage)
-      if source?(homepage)
+    def release_uri_with(source, homepage)
+      if github_or_gitlab?(homepage)
         format('%s/releases', homepage)
-      elsif source?(source)
+      elsif github_or_gitlab?(source)
         format('%s/releases', source)
       else
         homepage
       end
     end
 
-    def source?(url)
+    def github_or_gitlab?(url)
       url =~ /github.com/ || url =~ /gitlab.com/
     end
   end
