@@ -25,10 +25,11 @@ $ bundle exec bjt [destination] [package]
 
 ### Destinations:
 
+- `h` -> Jump To Homepage
 - `g` -> Jump To Github
 - `p` -> Jump To Gems Repos
-- `h` -> Jump To Homepage
 - `s` -> Jump To Source
+- `d` -> Jump To Library RDocs
 - `r` -> Jump To Releases
 - `l` -> Jump To Local Dir
 
@@ -46,11 +47,14 @@ $ bundle exec bjt [destination] [package]
 `bjt s bundler` (source)  
 → <https://github.com/rubygems/bundler>
 
+`bjt d bundler` (rdocs)  
+→ <https://www.rubydoc.info/gems/bundler/2.1.4>
+
 `bjt r bundler` (release)  
 → <https://github.com/rubygems/bundler/releases>
 
 `bjt l bundler` (Gem Installed Dir)  
-→ Open Folder: /Users/xxx/.rbenv/versions/2.x.x/lib/ruby/gems/2.x.x/gems/bundler-x.x.x
+→ Use \$EDITOR Open: /Users/xxx/.rbenv/versions/2.x.x/lib/ruby/gems/2.x.x/gems/bundler-x.x.x
 
 ## Contributing
 
