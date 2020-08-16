@@ -1,3 +1,7 @@
+## 0.3.0, release 2020-08-16
+
+- Add jump to Library RDocs
+
 ## 0.2.0, release 2020-08-15
 
 - Jump to rubygems with gem version
