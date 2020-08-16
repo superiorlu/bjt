@@ -22,6 +22,7 @@ module Bjt
           i[:release_uri] = release_uri_with(bundle_info.metadata['source_code_uri'], bundle_info.homepage)
           i[:source] = source_with(bundle_info.source).empty? ? 'https://rubygems.org' : source_with(bundle_info.source)
           i[:package_uri] = package_uri_with(i[:source], i[:version])
+          i[:doc_uri] = bundle_info.metadata['documentation_uri'] || doc_uri_with(i[:source], i[:version])
         end
       end
     end
@@ -46,6 +47,12 @@ module Bjt
       package_uri
     end
 
+    def doc_uri_with(source, version)
+      return source if source.end_with?('.git') && !github?(source)
+
+      format('https://www.rubydoc.info/gems/%s/%s', package, version)
+    end
+
     def release_uri_with(source, homepage)
       if github_or_gitlab?(homepage)
         format('%s/releases', homepage)
@@ -57,7 +64,15 @@ module Bjt
     end
 
     def github_or_gitlab?(url)
-      url =~ /github.com/ || url =~ /gitlab.com/
+      github?(url) || gitlab?(url)
+    end
+
+    def github?(url)
+      url =~ /github.com/
+    end
+
+    def gitlab?(url)
+      url =~ /gitlab.com/
     end
   end
 end

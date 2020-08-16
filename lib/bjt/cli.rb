@@ -31,6 +31,11 @@ module Bjt
       Bjt::Jumper.new(:r, package).jump
     end
 
+    desc 'd', 'Jump To Library RDocs'
+    def d(package)
+      Bjt::Jumper.new(:d, package).jump
+    end
+
     desc 'l', 'Jump To Local Dir'
     def l(package)
       Bjt::Jumper.new(:l, package).jump
